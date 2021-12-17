@@ -9,7 +9,7 @@
             <li>
                 <a href="{{ route('posts.show', $post->slug) }}" class="block w-full h-full">
                     <h3 class="text-lg text-gray-800 leading-tight md:line-clamp-1">{{ $post->title }}</h3>
-                    <span class="text-xs text-gray-700">{{ $post->created_at->format('d/m/Y') }}</span>
+                    <span class="text-xs text-gray-700">{{ $post->publish_date->format('d/m/Y') }}</span>
                     <p class="mt-1 text-xs text-gray-700 line-clamp-3">{{ $post->excerpt }}</p>
                 </a>
             </li>

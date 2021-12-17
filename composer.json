@@ -10,6 +10,7 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.65",
         "laravel/sanctum": "^2.11",
+        "laravel/scout": "^9.3",
         "laravel/tinker": "^2.5",
         "nedwors/navigator": "^0.2.0",
         "themsaid/wink": "^1.2",

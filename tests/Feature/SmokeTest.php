@@ -1,5 +1,6 @@
 <?php
 
+use Database\Factories\WinkAuthorFactory;
 use Database\Factories\WinkPostFactory;
 use Wink\WinkPost;
 
@@ -21,4 +22,15 @@ it('loads the posts show page', function () {
 
 it('can search for posts', function () {
     $this->get(route('posts.index', ['search' => 'a']))->assertOk();
+});
+
+it('stops guests seeing preview', function () {
+    $this->get(route('posts.preview', WinkPost::query()->first()))
+        ->assertRedirect(route('login'));
+});
+
+it('allows authors to see preview', function () {
+    $this->actingAs(WinkAuthorFactory::new()->create(), 'wink')
+        ->get(route('posts.preview', WinkPost::query()->first()))
+        ->assertOk();
 });

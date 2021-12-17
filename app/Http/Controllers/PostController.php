@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
+use Symfony\Component\HttpFoundation\Response;
 use Wink\WinkPost;
 
 class PostController extends Controller
@@ -30,6 +31,16 @@ class PostController extends Controller
     }
 
     public function show(WinkPost $post): View
+    {
+        abort_unless($post->published, Response::HTTP_NOT_FOUND);
+        abort_if($post->publish_date->isFuture(), Response::HTTP_NOT_FOUND);
+
+        return view('posts.show', [
+            'post' => $post,
+        ]);
+    }
+
+    public function preview(WinkPost $post): View
     {
         return view('posts.show', [
             'post' => $post,

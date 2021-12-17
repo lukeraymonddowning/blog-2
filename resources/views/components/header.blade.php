@@ -12,15 +12,14 @@
         </ul>
     </div>
 
-    <form class="w-full sm:w-auto flex" action="/search">
+    <form class="w-full sm:w-auto flex" action="{{ route('posts.index') }}">
         <label for="search" class="sr-only">Search for anything</label>
-        <input value="fix this..."
-               type="search"
-               name="q"
+        <input type="search"
+               name="search"
                id="search"
                class="flex-grow border-gray-400 border-l border-b border-t rounded-l pr-0 p-2 text-gray-700"
                placeholder="The world is your oyster...">
-        <button class="flex-shrink-0 border-gray-400 border rounded-r p-2 -ml-2 hover:bg-gray-100"
+        <button class="flex-shrink-0 border-gray-400 border border-l-0 rounded-r p-2 hover:bg-gray-100"
                 type="submit">
             Search
         </button>

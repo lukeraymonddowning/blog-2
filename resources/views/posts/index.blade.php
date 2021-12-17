@@ -1,5 +1,10 @@
 <x-layout title="Blog">
-    <h1 class="text-4xl mb-4 text-gray-800 font-semibold">Blog</h1>
+    <div class="mb-4">
+        <h1 class="text-4xl text-gray-800 font-semibold">Blog</h1>
+        @if($search)
+            <span class="block mt-2 text-xs text-gray-700 tracking-widest">Searching for {{ $search }}</span>
+        @endif
+    </div>
 
     <div class="max-w-5xl">
         {!! $content !!}

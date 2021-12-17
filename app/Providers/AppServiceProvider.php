@@ -28,7 +28,6 @@ final class AppServiceProvider extends ServiceProvider
     {
         Model::unguard();
         Model::preventLazyLoading();
-        Relation::enforceMorphMap([
-        ]);
+        Relation::enforceMorphMap([]);
     }
 }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8c902d006757e5cb0646b72a26949dcb",
+    "content-hash": "1560ae3a68aece1844a34354b64c6df0",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1755,6 +1755,72 @@
                 }
             ],
             "time": "2021-10-01T21:08:31+00:00"
+        },
+        {
+            "name": "nedwors/navigator",
+            "version": "0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nedwors/navigator.git",
+                "reference": "3d6655bf3cb3c581dbae2f6a01becb5c219a50fa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nedwors/navigator/zipball/3d6655bf3cb3c581dbae2f6a01becb5c219a50fa",
+                "reference": "3d6655bf3cb3c581dbae2f6a01becb5c219a50fa",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^8.62",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.1",
+                "nunomaduro/larastan": "^0.7.12",
+                "orchestra/testbench": "^6.21.1",
+                "pestphp/pest": "^1.20",
+                "pestphp/pest-plugin-laravel": "^1.1"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Nedwors\\Navigator\\NavigatorServiceProvider"
+                    ],
+                    "aliases": {
+                        "Menu": "Nedwors\\Navigator\\Facades\\Menu"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Nedwors\\Navigator\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sam Rowden",
+                    "email": "nedwors@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A Laravel package to ease defining navigation menus",
+            "homepage": "https://github.com/nedwors/navigator",
+            "keywords": [
+                "laravel",
+                "menu",
+                "navigation",
+                "nedwors"
+            ],
+            "support": {
+                "issues": "https://github.com/nedwors/navigator/issues",
+                "source": "https://github.com/nedwors/navigator/tree/0.2.0"
+            },
+            "time": "2021-11-25T23:10:23+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -5214,6 +5280,126 @@
                 "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/2.2.4"
             },
             "time": "2021-12-08T09:12:39+00:00"
+        },
+        {
+            "name": "torchlight/torchlight-commonmark",
+            "version": "v0.5.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/torchlight-api/torchlight-commonmark-php.git",
+                "reference": "281360437fd19af8881ffce562c9f88a4f2d0dd4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/torchlight-api/torchlight-commonmark-php/zipball/281360437fd19af8881ffce562c9f88a4f2d0dd4",
+                "reference": "281360437fd19af8881ffce562c9f88a4f2d0dd4",
+                "shasum": ""
+            },
+            "require": {
+                "league/commonmark": "^1.5|^2.0",
+                "php": "^7.2|^8.0",
+                "torchlight/torchlight-laravel": "^0.5.5"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.3.3",
+                "orchestra/testbench": "^5.0|^6.0",
+                "phpunit/phpunit": "^8.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Torchlight\\Commonmark\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Aaron Francis",
+                    "email": "aaron@hammerstone.dev"
+                }
+            ],
+            "description": "A Commonmark extension for Torchlight, the syntax highlighting API.",
+            "homepage": "https://torchlight.dev",
+            "keywords": [
+                "Code highlighting",
+                "commonmark",
+                "laravel",
+                "markdown",
+                "syntax highlighting"
+            ],
+            "support": {
+                "issues": "https://github.com/torchlight-api/torchlight-commonmark-php/issues",
+                "source": "https://github.com/torchlight-api/torchlight-commonmark-php/tree/v0.5.2"
+            },
+            "time": "2021-09-27T02:02:48+00:00"
+        },
+        {
+            "name": "torchlight/torchlight-laravel",
+            "version": "v0.5.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/torchlight-api/torchlight-laravel.git",
+                "reference": "d528caf717a44384a406e778468d058ccbef4391"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/torchlight-api/torchlight-laravel/zipball/d528caf717a44384a406e778468d058ccbef4391",
+                "reference": "d528caf717a44384a406e778468d058ccbef4391",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^7.2",
+                "illuminate/cache": "^7.26.0|^8.0",
+                "illuminate/console": "^7.26.0|^8.0",
+                "illuminate/http": "^7.26.0|^8.0",
+                "illuminate/support": "^7.26.0|^8.0",
+                "illuminate/view": "^7.26.0|^8.0",
+                "php": "^7.3|^8.0",
+                "ramsey/uuid": "^3.7|^4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.3.3",
+                "orchestra/testbench": "^5.0|^6.0",
+                "phpunit/phpunit": "^8.4"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Torchlight\\TorchlightServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Torchlight\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Aaron Francis",
+                    "email": "aaron@hammerstone.dev"
+                }
+            ],
+            "description": "A Laravel Client for Torchlight, the syntax highlighting API.",
+            "homepage": "https://torchlight.dev",
+            "keywords": [
+                "Code highlighting",
+                "laravel",
+                "syntax highlighting"
+            ],
+            "support": {
+                "issues": "https://github.com/torchlight-api/torchlight-laravel/issues",
+                "source": "https://github.com/torchlight-api/torchlight-laravel/tree/v0.5.7"
+            },
+            "time": "2021-11-02T14:55:01+00:00"
         },
         {
             "name": "vlucas/phpdotenv",

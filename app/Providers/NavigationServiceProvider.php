@@ -1,0 +1,17 @@
+<?php
+
+namespace App\Providers;
+
+use Illuminate\Support\ServiceProvider;
+use Nedwors\Navigator\Facades\Nav;
+
+class NavigationServiceProvider extends ServiceProvider
+{
+    public function boot(): void
+    {
+        Nav::define(fn () => [
+            Nav::item('Home')->for('home'),
+            Nav::item('Blog')->for('posts.index'),
+        ]);
+    }
+}

@@ -16,6 +16,7 @@ final class Kernel extends HttpKernel
      * @var array<int, string>
      */
     protected $middleware = [
+        \Torchlight\Middleware\RenderTorchlight::class,
         // \App\Http\Middleware\TrustHosts::class,
         \App\Http\Middleware\TrustProxies::class,
         \Fruitcake\Cors\HandleCors::class,

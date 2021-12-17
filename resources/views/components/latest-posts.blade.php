@@ -2,7 +2,7 @@
 <nav class="mt-8">
     <div class="flex justify-between items-baseline">
         <h2 class="text-xl text-gray-700 mb-2">Latest blog posts</h2>
-        <a href="/blog" aria-label="Read some of my other blog posts.">Browse all blog posts</a>
+        <a href="{{ route('posts.index') }}" aria-label="Read some of my other blog posts.">Browse all blog posts</a>
     </div>
     <ul class="mt-4 grid md:grid-cols-3 gap-6">
         @foreach($posts as $post)

@@ -16,6 +16,8 @@
     <meta name="msapplication-TileColor" content="#00aba9">
     <meta name="theme-color" content="#ffffff">
 
+    {{ $head ?? '' }}
+
     {{-- CSS --}}
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 

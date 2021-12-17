@@ -1,5 +1,5 @@
 <x-layout>
-    <h1 class="text-4xl mb-4 text-gray-800 font-semibold">Hi there!</h1>
+    <x-heading class="mb-4">Hi there!</x-heading>
 
     <div class="mb-4">
         <x-latest-posts :posts="$latestPosts" />
@@ -7,7 +7,7 @@
 
     <x-dots/>
 
-    <div class="max-w-5xl prose">
+    <x-prose>
         {!! $content !!}
-    </div>
+    </x-prose>
 </x-layout>

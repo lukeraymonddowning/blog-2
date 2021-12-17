@@ -24,7 +24,7 @@
     {{-- Fonts --}}
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-gray-50 leading-normal min-h-screen flex flex-col">
+<body class="bg-zinc-50 dark:bg-zinc-900 leading-normal min-h-screen flex flex-col">
 <x-header/>
 
 <main id="main" class="flex-grow leading-relaxed w-full md:w-3/4 max-w-5xl mx-auto">

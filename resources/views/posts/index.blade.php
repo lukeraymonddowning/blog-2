@@ -1,14 +1,14 @@
 <x-layout title="Blog">
     <div class="mb-4">
-        <h1 class="text-4xl text-gray-800 font-semibold">Blog</h1>
+        <x-heading>Blog</x-heading>
         @if($search)
             <span class="block mt-2 text-xs text-gray-700 tracking-widest">Searching for {{ $search }}</span>
         @endif
     </div>
 
-    <div class="max-w-5xl">
+    <x-prose>
         {!! $content !!}
-    </div>
+    </x-prose>
 
     <x-dots/>
 
@@ -18,9 +18,9 @@
                 @foreach($posts as $post)
                     <li class="mb-8">
                         <a href="{{ route('posts.show', $post->slug) }}">
-                            <h4 class="leading-tight">{{ $post->title }}</h4>
-                            <span class="text-xs text-gray-700">{{ $post->publish_date->format('d/m/Y') }}</span>
-                            <p class="mt-1 text-xs text-gray-700 line-clamp-3">{{ $post->excerpt }}</p>
+                            <h4 class="leading-tight text-zinc-900 dark:text-zinc-300">{{ $post->title }}</h4>
+                            <span class="text-xs text-zinc-700 dark:text-zinc-400">{{ $post->publish_date->format('d/m/Y') }}</span>
+                            <p class="mt-1 text-xs text-zinc-700 dark:text-zinc-400 line-clamp-3">{{ $post->excerpt }}</p>
                         </a>
                     </li>
                 @endforeach

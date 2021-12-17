@@ -3,7 +3,7 @@
         <ul class="flex space-x-2 mb-6 sm:mb-0">
             @foreach(navitems() as $item)
                 <li>
-                    <a class="text-lg pb-1 border-b-2 border-transparent hover:border-teal @if($item->active) border-teal @endif"
+                    <a class="text-zinc-900 dark:text-zinc-200 text-lg pb-1 border-b-2 border-transparent hover:border-teal @if($item->active) border-teal @endif"
                        href="{{ $item->url }}">
                         {{ __($item->name) }}
                     </a>
@@ -17,9 +17,9 @@
         <input type="search"
                name="search"
                id="search"
-               class="flex-grow border-gray-400 border-l border-b border-t rounded-l pr-0 p-2 text-gray-700"
+               class="flex-grow border-zinc-400 border-l border-b border-t rounded-l pr-0 p-2 text-zinc-700 dark:text-zinc-300 bg-transparent"
                placeholder="The world is your oyster...">
-        <button class="flex-shrink-0 border-gray-400 border border-l-0 rounded-r p-2 hover:bg-gray-100"
+        <button class="flex-shrink-0 border-zinc-400 border border-l-0 rounded-r p-2 hover:bg-zinc-100 dark:bg-zinc-300 text-zinc-900"
                 type="submit">
             Search
         </button>

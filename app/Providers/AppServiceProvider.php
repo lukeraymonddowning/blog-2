@@ -39,7 +39,7 @@ final class AppServiceProvider extends ServiceProvider
             DatabaseCheck::new(),
             DebugModeCheck::new(),
             EnvironmentCheck::new(),
-            PingCheck::new()->url('https://downing.tech/'),
+            PingCheck::new()->url('https://downing.tech/')->label('Homepage'),
         ]);
     }
 }

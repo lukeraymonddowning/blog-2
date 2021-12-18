@@ -14,6 +14,7 @@ class NavigationServiceProvider extends ServiceProvider
             Nav::item('Blog')->for('posts.index'),
             Nav::item('Twitter')->for('https://twitter.com/LukeDowning19'),
             Nav::item('GitHub')->for('https://github.com/lukeraymonddowning'),
+            Nav::item('YouTube')->for('https://www.youtube.com/channel/UCQIrK03uD-T69usLC8o3Spg'),
         ]);
     }
 }

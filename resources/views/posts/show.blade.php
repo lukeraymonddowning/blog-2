@@ -3,7 +3,7 @@
         <x-heading class="mb-2">{{ $post->title }}</x-heading>
         <span class="text-xs text-zinc-700 dark:text-zinc-400 tracking-widest">
             Published {{ $post->publish_date->format('d/m/Y') }}
-            @if($post->updated_at->isAfter($post->publish_date))| Last updated {{ $post->updated_at->format('d/m/Y') }}@endif
+            @if($post->updated_at->startOfDay()->isAfter($post->publish_date->startOfDay()))| Last updated {{ $post->updated_at->format('d/m/Y') }}@endif
         </span>
     </div>
 

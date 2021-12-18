@@ -8,7 +8,7 @@ return [
 
     // Which theme you want to use. You can find all of the themes at
     // https://torchlight.dev/docs/themes.
-    'theme' => 'material-theme-palenight',
+    'theme' => 'material-theme-default',
 
     // Your API token from torchlight.dev.
     'token' => env('TORCHLIGHT_TOKEN'),

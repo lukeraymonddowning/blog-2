@@ -14,8 +14,7 @@
         "nedwors/navigator": "^0.2.0",
         "spatie/laravel-health": "^1.5",
         "themsaid/wink": "^1.2",
-        "torchlight/torchlight-commonmark": "^0.5.2",
-        "torchlight/torchlight-laravel": "^0.5.7"
+        "torchlight/torchlight-commonmark": "^0.5.2"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

@@ -2,12 +2,14 @@
 
 declare(strict_types=1);
 
+use App\Models\Video;
 use Database\Factories\WinkAuthorFactory;
 use Database\Factories\WinkPostFactory;
 use Wink\WinkPost;
 
 beforeEach(function () {
     WinkPostFactory::new()->count(3)->create();
+    Video::factory()->count(3)->create();
 });
 
 it('loads the home page', function () {

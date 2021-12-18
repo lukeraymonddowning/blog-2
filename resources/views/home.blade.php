@@ -5,6 +5,10 @@
         <x-latest-posts :posts="$latestPosts" />
     </div>
 
+    <div class="mb-4">
+        <x-latest-videos :videos="$latestVideos" />
+    </div>
+
     <x-dots/>
 
     <x-prose>

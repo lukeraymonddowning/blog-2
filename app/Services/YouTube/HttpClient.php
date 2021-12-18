@@ -36,7 +36,7 @@ final class HttpClient implements YouTube
             ], [
                 'title' => $data['snippet']['title'],
                 'description' => $data['snippet']['description'],
-                'thumbnail' => $data['snippet']['thumbnails']['medium']['url'],
+                'thumbnail' => $data['snippet']['thumbnails']['high']['url'],
                 'published_at' => Carbon::parse($data['snippet']['publishedAt'])->toDateTimeString(),
             ]));
     }

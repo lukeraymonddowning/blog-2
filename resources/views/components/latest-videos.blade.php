@@ -11,12 +11,15 @@
         <ul class="mt-4 grid md:grid-cols-3 gap-6">
             @foreach($videos as $video)
                 <li>
-                    <a href="{{ $video->url }}" class="block w-full h-full">
-                        <img src="{{ $video->thumbnail }}" alt="YouTube thumbnail" class="aspect-video w-full">
-                        <h3 class="mt-2 text-lg text-zinc-800 dark:text-zinc-400 leading-tight md:line-clamp-1">{{ $video->title }}</h3>
-                        <span
-                            class="text-xs text-zinc-700 dark:text-zinc-500">{{ $video->published_at->format('d/m/Y') }}</span>
-                        <p class="mt-1 text-xs text-zinc-700 dark:text-zinc-500 line-clamp-3">{{ $video->description }}</p>
+                    <a href="{{ $video->url }}" class="block w-full h-full flex md:flex-col items-center">
+                        <img src="{{ $video->thumbnail }}" alt="YouTube thumbnail"
+                             class="aspect-square object-cover md:aspect-video w-32 md:w-full">
+                        <div class="ml-4 md:ml-0 md:mt-2">
+                            <h3 class="text-lg text-zinc-800 dark:text-zinc-400 leading-tight md:line-clamp-1">{{ $video->title }}</h3>
+                            <span
+                                class="text-xs text-zinc-700 dark:text-zinc-500">{{ $video->published_at->format('d/m/Y') }}</span>
+                            <p class="mt-1 text-xs text-zinc-700 dark:text-zinc-500 line-clamp-3">{{ $video->description }}</p>
+                        </div>
                     </a>
                 </li>
             @endforeach

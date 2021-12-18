@@ -16,7 +16,7 @@ abstract class TestCase extends BaseTestCase
     protected function afterRefreshingDatabase(): void
     {
         Artisan::call('migrate', [
-            '--path' => 'vendor/themsaid/wink/src/Migrations'
+            '--path' => 'vendor/themsaid/wink/src/Migrations',
         ]);
     }
 }

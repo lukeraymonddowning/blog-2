@@ -1,18 +1,19 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 use Wink\WinkPost;
 
-class HomeController extends Controller
+final class HomeController extends Controller
 {
     public function __invoke(): View
     {
         return view('home', [
-            'content' => Str::markdown(file_get_contents(resource_path('markdown/home.md'))),
+            'content' => Str::markdown(\Safe\file_get_contents(resource_path('markdown/home.md'))),
             'latestPosts' => WinkPost::query()
                 ->published()
                 ->live()

@@ -7,10 +7,11 @@ use Spatie\Health\ResultStores\EloquentHealthResultStore;
 
 return new class extends Migration
 {
-    public function up()
+    public function up(): void
     {
+        // @phpstan-ignore-next-line
         $tableName = EloquentHealthResultStore::getHistoryItemInstance()->getTable();
-    
+
         Schema::create($tableName, function (Blueprint $table) {
             $table->id();
 

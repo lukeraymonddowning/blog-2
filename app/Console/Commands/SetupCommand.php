@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
@@ -7,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Wink\WinkAuthor;
 
-class SetupCommand extends Command
+final class SetupCommand extends Command
 {
     protected $signature = 'site:setup
         {name? : The name of the author}
@@ -22,15 +24,15 @@ class SetupCommand extends Command
     {
         $this->call($this->option('force') ? 'migrate:fresh' : 'migrate');
         $this->call('migrate', [
-            '--path' => 'vendor/themsaid/wink/src/Migrations'
+            '--path' => 'vendor/themsaid/wink/src/Migrations',
         ]);
 
         $this->line('Let\'s set up an author account.');
         $this->newLine();
 
-        $name = $this->argument('name') ?? $this->ask('Name');
-        $email = $this->argument('email') ?? $this->ask('Email address');
-        $password = $this->argument('password') ?? $this->secret('Password');
+        $name = strval($this->argument('name') ?? $this->ask('Name'));
+        $email = strval($this->argument('email') ?? $this->ask('Email address'));
+        $password = strval($this->argument('password') ?? $this->secret('Password'));
 
         WinkAuthor::query()->create([
             'id' => Str::uuid(),

@@ -6,6 +6,7 @@ use Carbon\CarbonInterface;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use Wink\WinkPost;
+use function Safe\file_get_contents;
 
 class WinkPostFactory extends Factory
 {

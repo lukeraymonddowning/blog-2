@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Database\Factories\WinkAuthorFactory;
 use Database\Factories\WinkPostFactory;
 use Wink\WinkPost;

@@ -1,4 +1,4 @@
-<nav class="flex flex-col sm:flex-row px-4 py-2 justify-between items-baseline" role="navigation" aria-label="Main">
+<nav class="flex flex-col sm:flex-row px-4 py-2 justify-between items-baseline print:hidden" role="navigation" aria-label="Main">
     <div>
         <ul class="flex space-x-2 mb-6 sm:mb-0">
             @foreach(navitems() as $item)

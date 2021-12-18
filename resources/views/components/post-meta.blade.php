@@ -44,3 +44,5 @@
         "articleBody": "{{ strip_tags($post->content) }}"
     }
 </script>
+
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

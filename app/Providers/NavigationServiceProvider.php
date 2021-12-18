@@ -12,9 +12,9 @@ class NavigationServiceProvider extends ServiceProvider
         Nav::define(fn () => [
             Nav::item('Home')->for('home'),
             Nav::item('Blog')->for('posts.index'),
-            Nav::item('Twitter')->for('https://twitter.com/LukeDowning19'),
-            Nav::item('GitHub')->for('https://github.com/lukeraymonddowning'),
-            Nav::item('YouTube')->for('https://www.youtube.com/channel/UCQIrK03uD-T69usLC8o3Spg'),
+            Nav::item('Twitter')->for(config('social.twitter')),
+            Nav::item('GitHub')->for(config('social.github')),
+            Nav::item('YouTube')->for(config('social.youtube')),
         ]);
     }
 }

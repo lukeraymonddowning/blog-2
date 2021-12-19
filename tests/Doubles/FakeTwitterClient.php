@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Doubles;
 
 use App\Contracts\Services\Twitter;
 use PHPUnit\Framework\Assert;
 
-class FakeTwitterClient implements Twitter
+final class FakeTwitterClient implements Twitter
 {
     /**
      * @var array<int, string>

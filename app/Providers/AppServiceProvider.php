@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use App\Contracts\Services\Twitter;
 use App\Contracts\Services\YouTube;
+use App\Services\Twitter\TwitterManager;
 use App\Services\YouTube\YouTubeManager;
 use Carbon\CarbonImmutable;
 use Illuminate\Contracts\Container\Container;
@@ -24,6 +26,10 @@ final class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind(YouTube::class, function (Container $container) {
             return (new YouTubeManager($container))->driver();
+        });
+
+        $this->app->bind(Twitter::class, function (Container $container) {
+            return (new TwitterManager($container))->driver();
         });
     }
 

@@ -1,28 +1,29 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Services\Twitter;
 
 use Abraham\TwitterOAuth\TwitterOAuth;
 use Illuminate\Support\Manager;
 use Tests\Doubles\FakeTwitterClient;
 
-class TwitterManager extends Manager
+final class TwitterManager extends Manager
 {
-
     public function getDefaultDriver(): string
     {
         return $this->configOptions()['driver'] ?? 'null';
     }
 
-    public function createOauthDriver(): Oauth
+    public function createOauthDriver(): OauthClient
     {
         $options = $this->configOptions();
 
-        return new Oauth(new TwitterOAuth(
-            $options["consumer_key"],
-            $options["consumer_secret"],
-            $options["access_token"],
-            $options["access_token_secret"]
+        return new OauthClient(new TwitterOAuth(
+            $options['consumer_key'],
+            $options['consumer_secret'],
+            $options['access_token'],
+            $options['access_token_secret']
         ));
     }
 
@@ -32,7 +33,7 @@ class TwitterManager extends Manager
     }
 
     /**
-     * @return array{ driver: string|null, consumer_key: string, consumer_secret: string, access_token: string, access_token_secret: string }
+     * @return array{ driver: string|null, consumer_key: string, consumer_secret: string|null, access_token: string, access_token_secret: string|null }
      */
     private function configOptions(): array
     {

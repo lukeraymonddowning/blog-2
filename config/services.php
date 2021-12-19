@@ -31,6 +31,7 @@ return [
     ],
 
     'youtube' => [
+        'driver' => env('YOUTUBE_DRIVER', 'http'),
         'channel_id' => env('YOUTUBE_CHANNEL_ID'),
         'key' => env('YOUTUBE_API_KEY'),
     ],

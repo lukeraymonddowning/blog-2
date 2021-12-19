@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Providers;
 
 use App\Contracts\Services\YouTube;
-use App\Services\YouTube\HttpClient;
+use App\Services\YouTube\YouTubeManager;
 use Carbon\CarbonImmutable;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Database\Eloquent\Model;
@@ -23,10 +23,7 @@ final class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->bind(YouTube::class, function (Container $container) {
-            // @phpstan-ignore-next-line
-            $config = $container['config']->get('services.youtube');
-
-            return new HttpClient($config['key'], $config['channel_id']);
+            return (new YouTubeManager($container))->driver();
         });
     }
 

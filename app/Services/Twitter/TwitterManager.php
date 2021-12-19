@@ -35,10 +35,11 @@ final class TwitterManager extends Manager
     }
 
     /**
-     * @return array{ driver: string|null, consumer_key: string, consumer_secret: string|null, access_token: string, access_token_secret: string|null }
+     * @return array{ driver: string|null, consumer_key: string, consumer_secret: string, access_token: string, access_token_secret: string }
      */
     private function configOptions(): array
     {
+        // @phpstan-ignore-next-line
         return $this->config->get('services.twitter');
     }
 }

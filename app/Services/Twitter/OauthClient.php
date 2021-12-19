@@ -15,6 +15,6 @@ final class OauthClient implements Twitter
 
     public function tweet(string $message): void
     {
-        dd($this->client->post('statuses/update', ['status' => $message]));
+        $this->client->post('tweets', ['text' => $message], true);
     }
 }

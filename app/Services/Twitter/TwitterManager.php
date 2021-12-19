@@ -18,13 +18,15 @@ final class TwitterManager extends Manager
     public function createOauthDriver(): OauthClient
     {
         $options = $this->configOptions();
-
-        return new OauthClient(new TwitterOAuth(
+        $twitter = new TwitterOAuth(
             $options['consumer_key'],
             $options['consumer_secret'],
             $options['access_token'],
             $options['access_token_secret']
-        ));
+        );
+        $twitter->setApiVersion('2');
+
+        return new OauthClient($twitter);
     }
 
     public function createNullDriver(): FakeTwitterClient

@@ -20,3 +20,18 @@ parameters:
 			count: 2
 			path: app/Http/Controllers/PostController.php
 
+		-
+			message: "#^Access to an undefined property Wink\\\\WinkPost\\:\\:\\$slug\\.$#"
+			count: 1
+			path: app/Jobs/SendTweetAboutPublishedPost.php
+
+		-
+			message: "#^Access to an undefined property Wink\\\\WinkPost\\:\\:\\$title\\.$#"
+			count: 1
+			path: app/Jobs/SendTweetAboutPublishedPost.php
+
+		-
+			message: "#^Access to an undefined property Wink\\\\WinkPost\\:\\:\\$published\\.$#"
+			count: 1
+			path: app/Providers/WinkServiceProvider.php
+

@@ -14,9 +14,18 @@ final class NavigationServiceProvider extends ServiceProvider
         Nav::define(fn () => [
             Nav::item('Home')->for('home'),
             Nav::item('Blog')->for('posts.index'),
-            Nav::item('Twitter')->for(strval(config('social.twitter'))),
-            Nav::item('GitHub')->for(strval(config('social.github'))),
-            Nav::item('YouTube')->for(strval(config('social.youtube'))),
         ]);
+
+        Nav::define(fn () => [
+            Nav::item('Twitter')->icon('ri-twitter-line')->for(strval(config('social.twitter')))->meta([
+                'footerClass' => 'hover:text-blue-400',
+            ]),
+            Nav::item('GitHub')->icon('ri-github-line')->for(strval(config('social.github')))->meta([
+                'footerClass' => 'hover:text-zinc-500 hover:dark:text-zinc-50',
+            ]),
+            Nav::item('YouTube')->icon('ri-youtube-line')->for(strval(config('social.youtube')))->meta([
+                'footerClass' => 'hover:text-red-500',
+            ]),
+        ], 'social');
     }
 }

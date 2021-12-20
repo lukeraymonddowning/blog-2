@@ -1,7 +1,7 @@
 <nav class="flex flex-col sm:flex-row px-4 py-2 justify-between items-baseline print:hidden" role="navigation" aria-label="Main">
     <div>
         <ul class="flex space-x-2 mb-6 sm:mb-0">
-            @foreach(navitems() as $item)
+            @foreach([...navitems(), ...navitems('social')] as $item)
                 <li>
                     <a class="text-zinc-900 dark:text-zinc-200 text-lg pb-1 border-b-2 border-transparent hover:border-teal @if($item->active) border-teal @endif"
                        href="{{ $item->url }}">

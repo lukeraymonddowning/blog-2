@@ -1,15 +1,15 @@
 <footer class="mt-12 mb-6 flex flex-col items-center justify-center px-4 print:hidden">
     <div class="flex items-baseline space-x-4">
         <a href="{{ config('social.twitter') }}">
-            <x-ri-twitter-line class="h-8 text-zinc-900 hover:text-blue-400 transition" />
+            <x-ri-twitter-line class="h-8 text-zinc-900 dark:text-zinc-50 hover:text-blue-400 transition" />
             <span class="sr-only">Twitter</span>
         </a>
         <a href="{{ config('social.github') }}">
-            <x-ri-github-line class="h-8 text-zinc-900 hover:text-zinc-500 transition" />
+            <x-ri-github-line class="h-8 text-zinc-900 dark:text-zinc-200 hover:text-zinc-500 hover:dark:text-zinc-50 transition" />
             <span class="sr-only">Github</span>
         </a>
         <a href="{{ config('social.youtube') }}">
-            <x-ri-youtube-line class="h-8 text-zinc-900 hover:text-red-500 transition" />
+            <x-ri-youtube-line class="h-8 text-zinc-900 dark:text-zinc-50 hover:text-red-500 transition" />
             <span class="sr-only">YouTube</span>
         </a>
     </div>

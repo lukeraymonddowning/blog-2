@@ -20,3 +20,27 @@ it('sends a tweet about the published post', function () {
     $postUrl
     TXT);
 });
+
+it('will not send a tweet if the post is no longer published', function () {
+    $this->swap(Twitter::class, $twitter = new FakeTwitterClient());
+    $post = WinkPostFactory::new()->create([
+        'published' => false,
+        'publish_date' => now()->subDay(),
+    ]);
+
+    SendTweetAboutPublishedPost::dispatchSync($post);
+
+    $twitter->assertNothingTweeted();
+});
+
+it('will not send a tweet if the post is no longer live', function () {
+    $this->swap(Twitter::class, $twitter = new FakeTwitterClient());
+    $post = WinkPostFactory::new()->create([
+        'published' => true,
+        'publish_date' => now()->addDay(),
+    ]);
+
+    SendTweetAboutPublishedPost::dispatchSync($post);
+
+    $twitter->assertNothingTweeted();
+});

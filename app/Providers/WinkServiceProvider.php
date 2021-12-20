@@ -14,7 +14,8 @@ final class WinkServiceProvider extends ServiceProvider
     {
         WinkPost::saved(function (WinkPost $post) {
             if ($post->published && $post->wasChanged('published')) {
-                SendTweetAboutPublishedPost::dispatch($post);
+                // We add a second to the delay to make sure the tweet is sent after the post is published.
+                SendTweetAboutPublishedPost::dispatch($post)->delay($post->publish_date->addSecond());
             }
         });
     }

@@ -27,4 +27,11 @@ final class FakeTwitterClient implements Twitter
             "The tweet \"{$tweet}\" was never sent."
         );
     }
+
+    public function assertNothingTweeted(): void
+    {
+        $sentTweetCount = count($this->sentTweets);
+
+        Assert::assertCount(0, $this->sentTweets, "[{$sentTweetCount}] tweets were sent.");
+    }
 }

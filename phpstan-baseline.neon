@@ -21,6 +21,16 @@ parameters:
 			path: app/Http/Controllers/PostController.php
 
 		-
+			message: "#^Access to an undefined property Wink\\\\WinkPost\\:\\:\\$publish_date\\.$#"
+			count: 1
+			path: app/Jobs/SendTweetAboutPublishedPost.php
+
+		-
+			message: "#^Access to an undefined property Wink\\\\WinkPost\\:\\:\\$published\\.$#"
+			count: 1
+			path: app/Jobs/SendTweetAboutPublishedPost.php
+
+		-
 			message: "#^Access to an undefined property Wink\\\\WinkPost\\:\\:\\$slug\\.$#"
 			count: 1
 			path: app/Jobs/SendTweetAboutPublishedPost.php
@@ -29,6 +39,11 @@ parameters:
 			message: "#^Access to an undefined property Wink\\\\WinkPost\\:\\:\\$title\\.$#"
 			count: 1
 			path: app/Jobs/SendTweetAboutPublishedPost.php
+
+		-
+			message: "#^Access to an undefined property Wink\\\\WinkPost\\:\\:\\$publish_date\\.$#"
+			count: 1
+			path: app/Providers/WinkServiceProvider.php
 
 		-
 			message: "#^Access to an undefined property Wink\\\\WinkPost\\:\\:\\$published\\.$#"

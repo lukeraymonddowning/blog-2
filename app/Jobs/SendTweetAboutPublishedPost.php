@@ -25,8 +25,25 @@ final class SendTweetAboutPublishedPost implements ShouldQueue
 
     public function handle(Twitter $twitter): void
     {
+        if ($this->postIsPublic() === false) {
+            return;
+        }
+
         $postUrl = route('posts.show', $this->post->slug);
 
         $twitter->tweet("New blog post available 📬: {$this->post->title}\n\n{$postUrl}");
+    }
+
+    private function postIsPublic(): bool
+    {
+        if ($this->post->published === false) {
+            return false;
+        }
+
+        if ($this->post->publish_date->isFuture()) {
+            return false;
+        }
+
+        return true;
     }
 }

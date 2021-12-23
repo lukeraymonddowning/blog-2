@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
+use App\Contracts\Services\Register;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -32,13 +33,16 @@ final class PostController extends Controller
         ]);
     }
 
-    public function show(WinkPost $post): View
+    public function show(Request $request, WinkPost $post, Register $register): View
     {
         abort_unless($post->published, Response::HTTP_NOT_FOUND);
         abort_if($post->publish_date->isFuture(), Response::HTTP_NOT_FOUND);
 
+        $token = $register->markPresent($request);
+
         return view('posts.show', [
             'post' => $post,
+            'token' => $token,
         ]);
     }
 

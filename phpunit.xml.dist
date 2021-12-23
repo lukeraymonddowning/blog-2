@@ -29,5 +29,6 @@
         <server name="TELESCOPE_ENABLED" value="false"/>
         <server name="YOUTUBE_DRIVER" value="null"/>
         <server name="TWITTER_DRIVER" value="null"/>
+        <server name="REGISTER_DRIVER" value="null"/>
     </php>
 </phpunit>

@@ -1,7 +1,7 @@
 <footer class="mt-12 mb-6 flex flex-col items-center justify-center px-4 print:hidden">
     <div class="flex items-baseline space-x-4">
         @foreach(navitems('social') as $item)
-            <a href="{{ config('social.twitter') }}">
+            <a href="{{ $item->url }}">
                 <x-dynamic-component :component="$item->icon"
                                      class="h-8 text-zinc-900 dark:text-zinc-300 transition {{ $item->meta['footerClass'] ?? '' }}"
                 />

@@ -34,5 +34,7 @@
 </main>
 <x-decoration/>
 <x-footer/>
+
+{{ $scripts ?? '' }}
 </body>
 </html>

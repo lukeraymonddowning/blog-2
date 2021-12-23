@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use App\Contracts\Services\Register;
 use App\Contracts\Services\Twitter;
 use App\Contracts\Services\YouTube;
+use App\Services\Register\RegisterManager;
 use App\Services\Twitter\TwitterManager;
 use App\Services\YouTube\YouTubeManager;
 use Carbon\CarbonImmutable;
@@ -30,6 +32,10 @@ final class AppServiceProvider extends ServiceProvider
 
         $this->app->bind(Twitter::class, function (Container $container) {
             return (new TwitterManager($container))->driver();
+        });
+
+        $this->app->singleton(Register::class, function (Container $container) {
+            return (new RegisterManager($container))->driver();
         });
     }
 

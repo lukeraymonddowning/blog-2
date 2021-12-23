@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Models\Visit;
 use App\Services\Register\RegisterManager;
 

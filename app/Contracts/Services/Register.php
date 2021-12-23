@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Contracts\Services;
 
 use Illuminate\Http\Request;
@@ -19,5 +21,4 @@ interface Register
      * have reached the end of a blog post.
      */
     public function markCompleted(string $token): void;
-
 }

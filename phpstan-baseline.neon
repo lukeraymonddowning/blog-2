@@ -41,6 +41,11 @@ parameters:
 			path: app/Jobs/SendTweetAboutPublishedPost.php
 
 		-
+			message: "#^Call to an undefined method Nedwors\\\\Navigator\\\\Item\\:\\:meta\\(\\)\\.$#"
+			count: 3
+			path: app/Providers/NavigationServiceProvider.php
+
+		-
 			message: "#^Access to an undefined property Wink\\\\WinkPost\\:\\:\\$publish_date\\.$#"
 			count: 1
 			path: app/Providers/WinkServiceProvider.php
@@ -49,4 +54,9 @@ parameters:
 			message: "#^Access to an undefined property Wink\\\\WinkPost\\:\\:\\$published\\.$#"
 			count: 1
 			path: app/Providers/WinkServiceProvider.php
+
+		-
+			message: "#^Access to an undefined property Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\|Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$slug\\.$#"
+			count: 1
+			path: database/factories/VisitFactory.php
 

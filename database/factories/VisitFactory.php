@@ -14,7 +14,7 @@ class VisitFactory extends Factory
     public function definition(): array
     {
         return [
-            'id' => Str::uuid(),
+            'id' => Str::uuid()->toString(),
             'device_key' => fn ($attributes) => Hash::make($attributes['id']),
             'url' => fn() => route('posts.show', WinkPostFactory::new()->create()->slug),
             'completed_at' => null,

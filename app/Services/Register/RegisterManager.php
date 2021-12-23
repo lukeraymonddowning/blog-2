@@ -1,14 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Services\Register;
 
 use Illuminate\Support\Manager;
 use Tests\Doubles\FakeRegister;
 
-class RegisterManager extends Manager
+final class RegisterManager extends Manager
 {
     public function getDefaultDriver(): string
     {
+        // @phpstan-ignore-next-line
         return $this->config->get('services.register.default') ?? 'null';
     }
 

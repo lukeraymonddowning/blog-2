@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Doubles;
 
 use App\Contracts\Services\Register;
@@ -7,8 +9,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use PHPUnit\Framework\Assert;
 
-class FakeRegister implements Register
+final class FakeRegister implements Register
 {
+    private string|null $token = null;
+
     /**
      * @var array<string, string>
      */
@@ -22,7 +26,7 @@ class FakeRegister implements Register
     public function markPresent(Request $request): string
     {
         $deviceKey = $this->getDeviceKey($request);
-        $token = Str::uuid();
+        $token = $this->token ?? Str::uuid()->toString();
 
         $this->present[$deviceKey] ??= $token;
 
@@ -32,6 +36,13 @@ class FakeRegister implements Register
     public function markCompleted(string $token): void
     {
         $this->completed[] = $token;
+    }
+
+    public function forceToken(string $token): self
+    {
+        $this->token = $token;
+
+        return $this;
     }
 
     public function assertPresent(Request $request): self

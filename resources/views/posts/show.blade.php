@@ -25,6 +25,8 @@
 
     <span id="endOfArticle"></span>
 
+    <x-sponsor-me />
+
     <x-slot name="head">
         <x-post-meta :post="$post"/>
     </x-slot>

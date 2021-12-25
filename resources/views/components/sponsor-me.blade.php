@@ -1,7 +1,7 @@
 <x-dots />
 <div>
-    <h2 class="text-xl mb-3 text-zinc-900 font-bold">Like what you see?</h2>
-    <span class="text-sm text-zinc-700">
+    <h2 class="text-xl mb-3 text-zinc-900 dark:text-zinc-300 font-bold">Like what you see?</h2>
+    <span class="text-sm text-zinc-700 dark:text-zinc-400">
         If you enjoy reading my content, <span class="italic">please consider sponsoring me</span>. I don't spend it on
         cups of coffee; it all goes towards freeing up more of my time to work on open source,
         tutorials and more posts like this one.

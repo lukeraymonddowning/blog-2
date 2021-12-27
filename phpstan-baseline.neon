@@ -56,6 +56,46 @@ parameters:
 			path: app/Providers/WinkServiceProvider.php
 
 		-
+			message: "#^Access to an undefined property Wink\\\\WinkPost\\:\\:\\$excerpt\\.$#"
+			count: 1
+			path: app/Services/Feed/FeedPost.php
+
+		-
+			message: "#^Access to an undefined property Wink\\\\WinkPost\\:\\:\\$featured_image\\.$#"
+			count: 1
+			path: app/Services/Feed/FeedPost.php
+
+		-
+			message: "#^Access to an undefined property Wink\\\\WinkPost\\:\\:\\$slug\\.$#"
+			count: 1
+			path: app/Services/Feed/FeedPost.php
+
+		-
+			message: "#^Access to an undefined property Wink\\\\WinkPost\\:\\:\\$title\\.$#"
+			count: 1
+			path: app/Services/Feed/FeedPost.php
+
+		-
+			message: "#^Access to an undefined property Wink\\\\WinkPost\\:\\:\\$updated_at\\.$#"
+			count: 1
+			path: app/Services/Feed/FeedPost.php
+
+		-
+			message: "#^Cannot access property \\$email on Wink\\\\WinkAuthor\\|null\\.$#"
+			count: 1
+			path: app/Services/Feed/FeedPost.php
+
+		-
+			message: "#^Cannot access property \\$name on Wink\\\\WinkAuthor\\|null\\.$#"
+			count: 1
+			path: app/Services/Feed/FeedPost.php
+
+		-
+			message: "#^Parameter \\#1 \\$id of method Spatie\\\\Feed\\\\FeedItem\\:\\:id\\(\\) expects string, int given\\.$#"
+			count: 1
+			path: app/Services/Feed/FeedPost.php
+
+		-
 			message: "#^Access to an undefined property Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\|Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$slug\\.$#"
 			count: 1
 			path: database/factories/VisitFactory.php

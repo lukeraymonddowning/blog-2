@@ -2,11 +2,32 @@
 
 namespace Wink;
 
+use Carbon\CarbonInterface;
 use DateTimeInterface;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\HtmlString;
 use League\CommonMark\GithubFlavoredMarkdownConverter;
 use Torchlight\Commonmark\V2\TorchlightExtension;
 
+/**
+ * @property string $id
+ * @property string $slug
+ * @property string $title
+ * @property string $excerpt
+ * @property-write string $body
+ * @property-read HtmlString|string $content
+ * @property bool $published
+ * @property CarbonInterface $publish_date
+ * @property string|null $featured_image
+ * @property string $featured_image_caption
+ * @property string $author_id
+ * @property CarbonInterface $updated_at
+ * @property CarbonInterface $created_at
+ * @property array<mixed>|null $meta
+ * @property bool $markdown
+ * @property-read WinkAuthor $author
+ * @property-read Collection<WinkTag> $tags
+ */
 class WinkPost extends AbstractWinkModel
 {
     /**

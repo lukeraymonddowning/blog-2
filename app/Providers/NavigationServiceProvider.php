@@ -28,5 +28,10 @@ final class NavigationServiceProvider extends ServiceProvider
                 'footerClass' => 'hover:text-red-500',
             ]),
         ], 'social');
+
+        Nav::define(fn () => [
+            ...navitems(),
+            Nav::item('RSS Feed')->for('/feed'),
+        ], 'footer');
     }
 }

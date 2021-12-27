@@ -38,3 +38,9 @@ it('allows authors to see preview', function () {
         ->get(route('posts.preview', WinkPost::query()->first()))
         ->assertOk();
 });
+
+it('successfully loads the atom feed', function () {
+    WinkPostFactory::new()->count(3)->create();
+
+    $this->get('/feed')->assertOk();
+});

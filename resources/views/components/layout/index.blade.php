@@ -8,6 +8,7 @@
           content="Hi there! My name is Luke Downing, a web developer from the UK, and this is my personal site. Come on in!">
     <title>{{ $title ?: __('Blog') }} | Downing Tech</title>
 
+    <x-feed-links />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">

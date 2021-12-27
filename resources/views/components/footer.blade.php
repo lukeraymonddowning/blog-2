@@ -16,4 +16,15 @@
             <a href="https://torchlight.dev" class="text-teal hover:text-teal-dark">torchlight.dev</a>.
         </span>
     </div>
+    <nav>
+        <ul class="mt-4 flex space-x-2 divide-x divide-zinc-400 text-sm text-zinc-500 dark:text-zinc-300">
+            @foreach(navitems('footer') as $item)
+                <li>
+                    <a href="{{ $item->url }}" class="ml-2 hover:text-zinc-700 hover:dark:text-zinc-50">
+                        {{ $item->name }}
+                    </a>
+                </li>
+            @endforeach
+        </ul>
+    </nav>
 </footer>

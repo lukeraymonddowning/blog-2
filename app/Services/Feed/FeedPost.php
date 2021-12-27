@@ -28,14 +28,19 @@ final class FeedPost implements Feedable
 
     public function toFeedItem(): FeedItem
     {
-        return FeedItem::create()
+        $feedItem = FeedItem::create()
             ->id($this->post->id)
             ->title($this->post->title)
             ->summary($this->post->excerpt)
-            ->image($this->post->featured_image)
             ->authorName($this->post->author->name)
             ->authorEmail($this->post->author->email)
             ->updated($this->post->updated_at)
             ->link(route('posts.show', $this->post->slug));
+
+        if ($this->post->featured_image) {
+            $feedItem->image($this->post->featured_image);
+        }
+
+        return $feedItem;
     }
 }

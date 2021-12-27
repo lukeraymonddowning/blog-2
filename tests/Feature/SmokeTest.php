@@ -44,3 +44,9 @@ it('successfully loads the atom feed', function () {
 
     $this->get('/feed')->assertOk();
 });
+
+it('successfully loads the atom feed when a post has no image', function () {
+    WinkPostFactory::new()->create(['featured_image' => null]);
+
+    $this->get('/feed')->assertOk();
+});

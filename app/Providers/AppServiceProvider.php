@@ -15,6 +15,7 @@ use Illuminate\Contracts\Container\Container;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Facades\Date;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 use Spatie\Health\Checks\Checks\DatabaseCheck;
 use Spatie\Health\Checks\Checks\DebugModeCheck;
@@ -45,6 +46,10 @@ final class AppServiceProvider extends ServiceProvider
         Model::preventLazyLoading();
         Relation::enforceMorphMap([]);
         Date::useClass(CarbonImmutable::class);
+
+        if ($this->app->environment('production')) {
+            URL::forceScheme('https');
+        }
 
         Health::checks([
             DatabaseCheck::new(),

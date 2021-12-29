@@ -5,6 +5,7 @@ declare(strict_types=1);
 use App\Models\Video;
 use Database\Factories\WinkAuthorFactory;
 use Database\Factories\WinkPostFactory;
+use Illuminate\Support\Facades\URL;
 use Wink\WinkPost;
 
 beforeEach(function () {
@@ -30,7 +31,14 @@ it('can search for posts', function () {
 
 it('stops guests seeing preview', function () {
     $this->get(route('posts.preview', WinkPost::query()->first()))
-        ->assertRedirect(route('login'));
+        ->assertForbidden();
+});
+
+it('allows access to preview using a secure link', function () {
+    WinkPostFactory::new()->create();
+    $link = URL::signedRoute('posts.preview', ['post' => WinkPost::query()->first()]);
+
+    $this->get($link)->assertOk();
 });
 
 it('allows authors to see preview', function () {

@@ -47,4 +47,8 @@ return [
     'register' => [
         'default' => env('REGISTER_DRIVER', 'database'),
     ],
+
+    'torchlight' => [
+        'enabled' => env('TORCHLIGHT_ENABLED', true),
+    ],
 ];

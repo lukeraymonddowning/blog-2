@@ -31,40 +31,11 @@ use Torchlight\Commonmark\V2\TorchlightExtension;
 class WinkPost extends AbstractWinkModel
 {
     /**
-     * The attributes that aren't mass assignable.
-     *
-     * @var array
-     */
-    protected $guarded = [];
-
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'wink_posts';
-
-    /**
-     * The primary key for the model.
-     *
-     * @var string
-     */
-    protected $primaryKey = 'id';
-
-    /**
-     * The "type" of the auto-incrementing ID.
-     *
-     * @var string
-     */
-    protected $keyType = 'string';
-
-    /**
      * Indicates if the IDs are auto-incrementing.
      *
      * @var bool
      */
     public $incrementing = false;
-
     /**
      * The attributes that should be mutated to dates.
      *
@@ -73,7 +44,30 @@ class WinkPost extends AbstractWinkModel
     public $dates = [
         'publish_date',
     ];
-
+    /**
+     * The attributes that aren't mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = [];
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'wink_posts';
+    /**
+     * The primary key for the model.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'id';
+    /**
+     * The "type" of the auto-incrementing ID.
+     *
+     * @var string
+     */
+    protected $keyType = 'string';
     /**
      * The attributes that should be casted.
      *
@@ -112,7 +106,7 @@ class WinkPost extends AbstractWinkModel
      */
     public function getContentAttribute()
     {
-        if (! $this->markdown) {
+        if (!$this->markdown) {
             return $this->body;
         }
 
@@ -120,7 +114,9 @@ class WinkPost extends AbstractWinkModel
             'allow_unsafe_links' => false,
         ]);
 
-        $converter->getEnvironment()->addExtension(new TorchlightExtension());
+        if (config('services.torchlight.enabled')) {
+            $converter->getEnvironment()->addExtension(new TorchlightExtension());
+        }
 
         return new HtmlString($converter->convertToHtml($this->body));
     }
@@ -128,7 +124,7 @@ class WinkPost extends AbstractWinkModel
     /**
      * Scope a query to only include published posts.
      *
-     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopePublished($query)
@@ -139,7 +135,7 @@ class WinkPost extends AbstractWinkModel
     /**
      * Scope a query to only include drafts (unpublished posts).
      *
-     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeDraft($query)
@@ -150,7 +146,7 @@ class WinkPost extends AbstractWinkModel
     /**
      * Scope a query to only include posts whose publish date is in the past (or now).
      *
-     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeLive($query)
@@ -161,7 +157,7 @@ class WinkPost extends AbstractWinkModel
     /**
      * Scope a query to only include posts whose publish date is in the future.
      *
-     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeScheduled($query)
@@ -172,8 +168,8 @@ class WinkPost extends AbstractWinkModel
     /**
      * Scope a query to only include posts whose publish date is before a given date.
      *
-     * @param \Illuminate\Database\Eloquent\Builder $query
-     * @param string $date
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @param  string  $date
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeBeforePublishDate($query, $date)
@@ -184,8 +180,8 @@ class WinkPost extends AbstractWinkModel
     /**
      * Scope a query to only include posts whose publish date is after a given date.
      *
-     * @param \Illuminate\Database\Eloquent\Builder $query
-     * @param string $date
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @param  string  $date
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeAfterPublishDate($query, $date)
@@ -196,8 +192,8 @@ class WinkPost extends AbstractWinkModel
     /**
      * Scope a query to only include posts that have a specific tag (by slug).
      *
-     * @param \Illuminate\Database\Eloquent\Builder $query
-     * @param string $slug
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @param  string  $slug
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeTag($query, string $slug)
@@ -210,7 +206,7 @@ class WinkPost extends AbstractWinkModel
     /**
      * Prepare a date for array / JSON serialization.
      *
-     * @param \DateTimeInterface $date
+     * @param  \DateTimeInterface  $date
      * @return string
      */
     protected function serializeDate(DateTimeInterface $date)
